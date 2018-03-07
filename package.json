@@ -1,0 +1,29 @@
+{
+  "name": "electron-maps",
+  "version": "1.0.0",
+  "description": "First app written in electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "//": [
+      "For whatever reason you need --inspect-brk and a debugger in the beginning of main.js to debug the main process.",
+      "In the beginning you will not see the app. Go to Chrome: chrome://inspect, under remote target click on inspect",
+      "If you don't use debugger, since the main.js is not present in the beginning, go to the end of init.js and debug the last call.",
+      "main.js will eventually be present, you can set a breakpoint and debug"
+    ],
+    "debug": "electron . --inspect-brk electron-maps",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-maps --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Maps\"",
+    "package-linux": "electron-packager . electron-maps --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.8.3",
+    "electron-packager": "^11.1.0"
+  },
+  "dependencies": {
+    "ol": "^4.6.4"
+  }
+}
